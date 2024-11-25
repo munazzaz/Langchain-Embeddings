@@ -40,4 +40,24 @@ The **core machine learning repository for Xenara**, focused on developing and i
 - 🐳 **Docker**: Containerization for consistent environments across development and production.  
 - 🔧 **Azure Machine Learning**: Experimentation, model tracking, and deployment.  
 
----
+## Workflow :gear:
+
+### Development Workflow :bookmark:
+
+| Action                    | Description                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| _Feature Branch Creation_ | Create a new `branch` for each feature or fix.                                      |
+| _Coding_                  | Adhere to `coding` standards and workspace structure.                               |
+| _Code Review_             | Submit `pull requests` to `dev` branch for review before merging.                   |
+| _Testing_                 | Do proper `QA testing` with @sakshit and @syed to ensure code quality. |
+| _Deployment_              | @Sakshit will merge code into the main branch and deploy to `production`.        |
+
+## Best Practices :rocket:
+
+🌴 Regularly pull changes from the `dev` branch .
+
+🌱 Write unit tests for new `components` and `functions`.
+
+☘️ Perform `code reviews` to maintain code quality.
+
+🎉 Create `feature branches` for new features and fixes.
