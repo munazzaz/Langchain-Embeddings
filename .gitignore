@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Virtual environment
+venv/
+.env/
+
+# Pytest cache
+pytest_cache/
+
+# Byte-compiled files
+*.pyo
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+# FastAPI generated files
+*.sqlite3
+
+# Node modules (if applicable)
+node_modules/
