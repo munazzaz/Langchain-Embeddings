@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.routes import users, items
 from app.routes.items import router as items_router
+from app.routes import users, items, embedding
 
 
 app = FastAPI(
@@ -17,6 +17,9 @@ app = FastAPI(
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(items.router, prefix="/items", tags=["Items"])
 app.include_router(items_router, prefix="/api")
+app.include_router(embedding.router, prefix="/embeddings", tags=["Embeddings"] )
+
+
 
 @app.get("/")
 async def root():
