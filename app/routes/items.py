@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File
 from app.models.items import Item
-from app.utils.helpers import preprocess_text
+from app.utils.helpers import preprocess_text, extract_text_from_pdf
 
 router = APIRouter()
 
@@ -13,6 +13,20 @@ async def get_items():
 async def create_item(item: Item):
     """Create a new item."""
     return {"message": f"Item '{item.name}' created with price {item.price}"}
+
+@router.post("/import-pdf")
+async def import_pdf(pdf_file: UploadFile = File(...)):
+    """
+    Upload a PDF file and extract its text content.
+    """
+    if not pdf_file.filename.endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are allowed.")
+    
+    pdf_text = extract_text_from_pdf(pdf_file.file)
+    if not pdf_text.strip():
+        raise HTTPException(status_code=400, detail="PDF has no extractable text.")
+    
+    return {"message": "PDF processed successfully", "text_preview": pdf_text[:100]}
 
 @router.post("/preprocess-text")
 async def preprocess_text_route(extracted_text: str):
