@@ -2,9 +2,6 @@
 __pycache__/
 *.pyc
 
-# Environment variables
-.env
-
 # Logs
 *.log
 
